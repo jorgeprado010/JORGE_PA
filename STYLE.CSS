@@ -143,3 +143,9 @@ p {
     color: #ffffff;
     margin-bottom: 30px;
 }
+
+.informacoes {
+    /* Organiza os cartões lado a lado */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
