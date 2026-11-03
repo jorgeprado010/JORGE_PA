@@ -14,8 +14,21 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+
+    /* ALTERAÇÃO: permite que a página tenha rolagem */
+    overflow-x: hidden;
+    overflow-y: auto;
+
     position: relative;
+
+    /* NOVO: organiza os elementos um abaixo do outro */
+    flex-direction: column;
+
+    /* NOVO: cria espaço entre o cartão e a nova seção */
+    gap: 60px;
+
+    /* NOVO: adiciona espaçamento nas bordas da página */
+    padding: 80px 20px;
 }
 
 body::before, body::after {
@@ -58,6 +71,9 @@ body::after {
     text-align: center;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease, border-color 0.3s ease;
+
+    /* NOVO: impede que o cartão seja comprimido */
+    flex-shrink: 0;
 }
 
 .card:hover {
@@ -142,4 +158,51 @@ p {
     font-size: 2rem;
     color: #ffffff;
     margin-bottom: 30px;
+}
+
+.informacoes {
+    /* Organiza os cartões lada a lado */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    /* Define o espaço entre os cartões */
+    gap: 20px;
+}
+
+.info-card {
+    /* Define o fundo e as bordas dos cartões */
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    /* Arredonda os cantos */
+    border-radius: 18px;
+
+    /* Define o espaçamento interno */
+    padding: 30px;
+
+    /* Alinha o conteúdo à esquerda */
+    text-align: left;
+
+    /* Adiciona uma transição suave */
+    transition: 0.3s ease;
+}
+
+.info-card:hover {
+    /* Eleva o cartão quando o mouse passa sobre ele */
+    transform: translateY(-5px);
+
+    /* Altera a cor da borda para vermelho */
+    border-color: #dc2626;
+}
+
+.info-card h3 {
+    /* Estiliza os títulos Git e GitHub */
+    color: #f87171;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.info-card p {
+    /* Ajusta o espaçamento entre os parágrafos */
+    margin-bottom: 12px;
 }
